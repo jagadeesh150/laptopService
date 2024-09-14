@@ -1,0 +1,16 @@
+.slds-table_container {
+    overflow-x: auto;
+}
+
+.slds-table {
+    width: 100%;
+}
+
+.slds-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.centered-card .slds-card__header {
+    text-align: center;
+}

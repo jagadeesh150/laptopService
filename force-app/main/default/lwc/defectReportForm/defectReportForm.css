@@ -1,0 +1,14 @@
+/* Custom styles for card header */
+.slds-card__header {
+    border-bottom: 1px solid #d8dde6; /* Subtle border for the header */
+}
+
+/* Centering the title */
+.slds-text-align_center {
+    text-align: center;
+}
+
+/* Adjust icon alignment */
+.slds-card__header lightning-icon {
+    margin-right: 0.5rem; /* Space between icon and title */
+}

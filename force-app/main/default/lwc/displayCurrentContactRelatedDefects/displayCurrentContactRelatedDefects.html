@@ -1,0 +1,55 @@
+<template>
+    <lightning-card style="padding: 20px;" title="Assigned Defect Reports for Contact" icon-name="custom:custom53">
+        <!-- Display loading spinner -->
+        <template if:true={isLoading}>
+            <div class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </template>
+
+        <!-- Display defect reports when data is available -->
+        <template if:true={hasDefectReports}>
+            <div style="padding: 20px;">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+                    <thead style="background-color: orangered;">
+                        <tr>
+                            <th>Defect Name</th>
+                            <th>Defect Severity</th>
+                            <th>Defect Description</th>
+                            <th>Defect Area</th>
+                            <th>Reported Date</th>
+                            <th>Technician</th>
+                            <th>Laptop</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={defectReports} for:item="report">
+                            <tr key={report.Id}>
+                                <td>{report.Name}</td>
+                                <td>{report.Defect_Severity__c}</td>
+                                <td>{report.Defect_Description__c}</td>
+                                <td>{report.Defect_Area__c}</td>
+                                <td>{report.Reported_Date__c}</td>
+                                <td>{report.Technician__r.Name}</td>
+                                <td>{report.Laptop__r.Name}</td>
+                                <td>{report.Status__c}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+
+        <!-- Display message if no defect reports are available -->
+        <template if:true={isNoDefectReports}>
+            <p>No defect reports assigned for this contact.</p>
+        </template>
+
+        <!-- Display error message -->
+        <template if:true={hasError}>
+            <p class="slds-text-color_error">Error loading defect reports: {error.message}</p>
+        </template>
+    </lightning-card>
+</template>

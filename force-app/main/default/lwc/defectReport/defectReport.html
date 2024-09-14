@@ -1,0 +1,24 @@
+<template>
+    <div style="width: 600px;">
+        <lightning-card title="Defect Report" icon-name="custom:custom113">
+           <div>
+            <lightning-combobox class="input" label="Select Contact"
+             value={selectedContact}
+             onchange={handleSelectedContact}
+             options={contactList}>
+          </lightning-combobox>
+          <lightning-input class="input" label="Reported Date" type="date" value={reportedDate} onchange={handleReportedDate} disabled></lightning-input>
+          <lightning-input class="input" label="Defect Description" type="text" value={defectDescription} onchange={handleDefectDescription}></lightning-input>
+          <lightning-combobox class="input" label="Defect Severity" value={defectSeverity} options={severityOptions} onchange={handleDefectSeverity}></lightning-combobox>
+          <lightning-combobox class="input" label="Defect Status" value={defectStatus} options={statusOptions} onchange={handleDefectStatus} disabled></lightning-combobox>
+          <lightning-combobox class="input" label="Defect Area" value={defectArea} options={defectAreaOptions} onchange={handleDefectArea}></lightning-combobox>
+          <lightning-input class="input" label="Laptop" value={laptop} disabled ></lightning-input>
+          <lightning-input class="input" label="Technician" value={technician} disabled></lightning-input>
+           </div>
+        </lightning-card>
+        <div class="footer-buttons">
+            <lightning-button style="margin-left: 50px;" label="Cancel" variant="neutral" onclick={handleCancel}></lightning-button>
+            <lightning-button style="margin-left: 10px;" label="Save" variant="brand" onclick={handleSave}></lightning-button>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Completed__c</fullName>
+    <description>Indicates if the status is either &quot;Completed&quot; or &quot;Replaced&quot;.</description>
+    <formula>OR(
+    ISPICKVAL(Status__c, &apos;Completed&apos;),
+    ISPICKVAL(Status__c, &apos;Replaced&apos;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Completed</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

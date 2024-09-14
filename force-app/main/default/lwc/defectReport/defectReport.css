@@ -1,0 +1,8 @@
+.footer-buttons{
+    display: flex;
+    align-items: center;
+}
+.input{
+    padding: 10px;
+    margin-left: 20px;
+}

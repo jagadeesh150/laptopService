@@ -1,0 +1,36 @@
+<template>
+    <div class="slds-p-around_medium">
+        <lightning-button label="Purchase Laptop" onclick={handleClickOnLaptop}></lightning-button>
+    </div>
+    <template if:true={isPopUp}>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <section role="dialog" tabindex="-1"  aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container" style="width: 700px;height:700px;margin-bottom:800px;max-width:1000px; max-height:1300px;">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCancelOnLaptopDetails}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="large" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                       <lightning-card class="card-data" title="Laptop Details" icon-name="custom:custom113">
+                        <lightning-input label="Laptop Name" type="text" value={laptopName} onchange={handleLaptopNameChange}></lightning-input>
+                        <lightning-input label="Laptop Description" type="text" value={laptopDescription} onchange={handleLaptopDescriptionChange}></lightning-input>
+                        <lightning-input label="Laptop Model" type="text" value={laptopModel} onchange={handleLaptopModelChange} ></lightning-input>
+                        <lightning-input label="Laptop PurchaseDate" type="date" value={laptopPurchaseDate} onchange={handleLaptopPurchaseDateChange}></lightning-input>
+                        <lightning-input label="Warranty ExpirationDate" type="date" value={warrantyExpirationDate} onchange={handleWarrantyExpirationDateChange}></lightning-input>
+                       <lightning-combobox label="Status" options={statusValues} value={laptopStatus} onchange={handleLaptopStatusChange} ></lightning-combobox>
+                        <lightning-input label="Location" type="text" value={location} onchange={handleLocationChange} ></lightning-input>
+                        
+                       </lightning-card>
+                    
+                    <div class="matching-footer">
+                        <lightning-button  style="margin-right: 450px;margin-left:30px;"  label="Cancel" onclick={handleCancelOnLaptopDetails}></lightning-button>
+                        <lightning-button  variant="brand"  label="Save" onclick={handleSaveOnLaptopDetails}></lightning-button>
+                    </div>
+                </header>  
+            </div>
+        </section>
+    </template>
+</template>

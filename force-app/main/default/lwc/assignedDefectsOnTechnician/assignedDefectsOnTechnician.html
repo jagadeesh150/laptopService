@@ -1,0 +1,43 @@
+<template>
+    <lightning-card style="padding: 20px;" title="Assigned Defect Reports" icon-name="custom:custom53">
+     <template if:true={defectReports}>
+         <div style="padding: 20px;">
+             <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+                 <thead style="background-color: orangered;">
+                     <tr>
+                         <th>Defect Name</th>
+                         <th>Defect Severity</th>
+                         <th>Defect Description</th>
+                         <th>Defect Area</th>
+                         <th>Reported Date</th>
+                         <th>Technician</th>
+                         <th>Laptop</th>
+                         <th>Status</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <template for:each={defectReports} for:item="report">
+                         <tr key={report.Id}>
+                             <td>{report.Name}</td>
+                             <td>{report.Defect_Severity__c}</td>
+                             <td>{report.Defect_Description__c}</td>
+                             <td>{report.Defect_Area__c}</td>
+                             <td>{report.Reported_Date__c}</td>
+                             <td>{report.Technician__c}</td>
+                             <td>{report.Laptop__c}</td>
+                             <td>
+                                 <lightning-combobox value={statusValue} data-id={report.Id}
+                                   options={statusOptions} onchange={handleStatusChange}>
+                                 </lightning-combobox>
+                             </td>
+                         </tr>
+                     </template>
+                 </tbody>
+             </table>
+         </div>
+     </template>
+     <template if:false={defectReports}>
+         <p>No defect reports assigned for this technician</p>
+     </template>
+    </lightning-card>
+ </template>

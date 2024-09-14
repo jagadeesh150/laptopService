@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="GraphQl Demo" icon-name="custom:custom30">
+        <template if:true={results}>
+            <template for:each={results} for:item="account">
+                <lightning-card key={account.Id} title={account.Name.value}>
+                    <ul>
+                        <template for:each={account.Contacts.edges} for:item="contact">
+                            <li key={contact.node.Id}>{contact.node.Name.value}</li>
+                        </template>
+                    </ul>
+                </lightning-card>
+            </template>
+        </template>
+        <template if:true={errors}>
+            <p>{errors}</p>
+        </template>
+    </lightning-card>
+</template>
+<!-- <template>
+    <lightning-card title="GraphQL Demo" icon-name="custom:custom30">
+        <template if:true={results}>
+            <template for:each={results} for:item="account">
+                <lightning-card key={account.Id} title={account.Name.value}>
+                    <p>Created Date: {account.CreatedDate.value}</p>
+                </lightning-card>
+            </template>
+        </template>
+
+        <template if:true={errors}>
+            <p>{errors}</p>
+        </template>
+    </lightning-card>
+</template> -->

@@ -1,0 +1,72 @@
+<template>
+    <lightning-card>
+        <div class="slds-card__header slds-grid slds-grid_vertical-align-center slds-grid_align-center slds-p-horizontal_medium">
+            <!-- Icon Container -->
+            <div class="slds-grid slds-align-middle slds-m-right_small">
+                <lightning-icon icon-name="utility:bug" alternative-text="Bug Icon" size="small"></lightning-icon>
+            </div>
+            <!-- Centered Title Container -->
+            <div class="slds-grid slds-grid_align-center">
+                <h1 class="slds-text-heading_large slds-text-align_center">Report a Defect</h1>
+            </div>
+        </div>
+
+        <div class="slds-p-around_medium">
+            <lightning-record-edit-form 
+                object-api-name="Defect_Report__c" 
+                onsuccess={handleSuccess}
+                onerror={handleError}
+                onsubmit={handleSubmit}>
+
+                <lightning-messages></lightning-messages>
+
+                <lightning-input-field 
+                    field-name="Customer_Contact__c"
+                    class="slds-m-bottom_small"
+                    required="true">
+                </lightning-input-field>
+
+                <lightning-input-field 
+                    field-name="Laptop__c"
+                    class="slds-m-bottom_small"
+                    required="true">
+                </lightning-input-field>
+
+                <lightning-input-field 
+                    field-name="Technician__c"
+                    class="slds-m-bottom_small"
+                    required="true">
+                </lightning-input-field>
+
+                <lightning-input-field 
+                    field-name="Reported_Date__c"
+                    class="slds-m-bottom_small"
+                    required="true">
+                </lightning-input-field>
+
+                <lightning-input-field 
+                    field-name="Defect_Severity__c"
+                    class="slds-m-bottom_small"
+                    required="true">
+                </lightning-input-field>
+
+                <lightning-input-field 
+                    field-name="Status__c"
+                    class="slds-m-bottom_small"
+                    required="true">
+                </lightning-input-field>
+
+                <lightning-input-field 
+                    field-name="Defect_Description__c"
+                    class="slds-m-bottom_small"
+                    required="true">
+                </lightning-input-field>
+
+                <!-- Centering the Defect Report Button -->
+                <div class="button-container slds-m-top_large slds-grid slds-grid_align-center">
+                    <lightning-button variant="brand" type="submit" label="Defect Report"></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>
